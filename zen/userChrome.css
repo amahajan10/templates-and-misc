@@ -1,0 +1,44 @@
+/* ==========================================================================
+   ZEN BROWSER WITH SINE MOD MANAGER - CUSTOM DARK INTERFACE FIX
+   ========================================================================== */
+
+/* 1. NATIVE THEME RESET: Force all text variables to true white */
+#nav-bar, 
+#PersonalToolbar, 
+#sidebar-box, 
+.bookmark-item,
+#urlbar-input {
+    color: #ffffff !important;
+    --toolbar-color: #ffffff !important;
+    --lwt-text-color: #ffffff !important;
+    --urlbar-box-text-color: #ffffff !important;
+    --urlbar-text-color: #ffffff !important;
+}
+
+/* 2. UNIVERSAL UI HARD-INVERT: Target every browser component at once */
+#nav-bar svg, #PersonalToolbar svg, #sidebar-box svg, #TabsToolbar svg,
+#nav-bar image, #PersonalToolbar image, #sidebar-box image, #TabsToolbar image,
+#nav-bar img, #PersonalToolbar img, #sidebar-box img, #TabsToolbar img,
+.toolbarbutton-icon, .urlbar-icon, .bookmark-item image, .bookmark-item svg,
+.zen-sidebar-item svg, .zen-workspace-indicator, #identity-icon,
+.tab-container-sharing-button, #tabbrowser-arrows {
+    filter: invert(1) brightness(10) !important;
+    fill: #ffffff !important;
+}
+
+/* 3. SHIELD PROTECTION: Safeguard website tab favicons from color shifts */
+#tabbrowser-tabs .tabbrowser-tab:not([label*="Settings"]):not([title*="Settings"]) .tab-icon-image,
+#tabbrowser-tabs .tabbrowser-tab:not([label*="Settings"]):not([title*="Settings"]) image,
+.tab-icon-stack image,
+.tab-icon-stack svg,
+.tab-icon-image:not([src*="chrome://"]) {
+    filter: none !important;
+    fill: unset !important;
+}
+
+/* 4. PINPOINT ADJUSTMENT: Handle internal system pages like Settings */
+.tabbrowser-tab[label*="Settings"] .tab-icon-image,
+.tabbrowser-tab[title*="Settings"] .tab-icon-image,
+.tab-icon-image[src*="chrome://global/"] {
+    filter: invert(1) brightness(10) !important;
+}
