@@ -2,7 +2,7 @@
    ZEN BROWSER WITH SINE MOD MANAGER - CUSTOM DARK INTERFACE FIX
    ========================================================================== */
 
-/* 1. NATIVE THEME RESET: Force all text variables to true white */
+/* 1. NATIVE THEME VARIABLES: Force system layouts and text parameters to true white */
 #nav-bar, 
 #PersonalToolbar, 
 #sidebar-box, 
@@ -15,28 +15,72 @@
     --urlbar-text-color: #ffffff !important;
 }
 
-/* 2. UNIVERSAL UI HARD-INVERT: Target every browser component at once */
+/* 2. UNIVERSAL PAINT ENFORCEMENT: Force all core vectors and browser interface shapes to true white */
 #nav-bar svg, #PersonalToolbar svg, #sidebar-box svg, #TabsToolbar svg,
 #nav-bar image, #PersonalToolbar image, #sidebar-box image, #TabsToolbar image,
 #nav-bar img, #PersonalToolbar img, #sidebar-box img, #TabsToolbar img,
 .toolbarbutton-icon, .urlbar-icon, .bookmark-item image, .bookmark-item svg,
-.zen-sidebar-item svg, .zen-workspace-indicator, #identity-icon,
-.tab-container-sharing-button, #tabbrowser-arrows {
-    filter: invert(1) brightness(10) !important;
+.zen-sidebar-item svg, .zen-sidebar-item image, .zen-workspace-indicator, #identity-icon,
+.tab-container-sharing-button, #tabbrowser-arrows, [id*="compact"], [class*="compact"],
+.tab-close-button, .zen-tab-close-button, [class*="close-button"] {
     fill: #ffffff !important;
+    color: #ffffff !important;
+    stroke: #ffffff !important;
 }
 
-/* 3. SHIELD PROTECTION: Safeguard website tab favicons from color shifts */
-#tabbrowser-tabs .tabbrowser-tab:not([label*="Settings"]):not([title*="Settings"]) .tab-icon-image,
-#tabbrowser-tabs .tabbrowser-tab:not([label*="Settings"]):not([title*="Settings"]) image,
-.tab-icon-stack image,
-.tab-icon-stack svg,
-.tab-icon-image:not([src*="chrome://"]) {
+/* 3. DOUBLE-LAYER RECOVERY FILTER: Invert elements that fallback to flat black images */
+#back-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon,
+#reload-button .toolbarbutton-icon,
+#sidebar-button .toolbarbutton-icon,
+.tabs-newtab-button .toolbarbutton-icon,
+.tabs-newtab-button svg,
+#TabsToolbar #tabs-newtab-button,
+#sidebar-box .zen-sidebar-item svg,
+#sidebar-box .zen-sidebar-item .toolbarbutton-icon,
+#sidebar-box #zen-spaces-button svg,
+#sidebar-box #zen-new-tab-button svg,
+#sidebar-box image,
+#sidebar-box svg,
+[id*="compact"] svg,
+[id*="compact"] image,
+[class*="compact"] svg,
+[class*="compact"] image,
+.tab-close-button,
+.tab-close-button image,
+.tab-close-button svg,
+.zen-tab-close-button,
+.zen-tab-close-button * {
+    filter: invert(1) brightness(10) !important;
+}
+
+/* 4. REFINED SHIELD PROTECTION: Pinpoint ONLY the raw favicon images, keeping close buttons vulnerable */
+#tabbrowser-tabs .tab-icon-image:not([src*="chrome://global/"]),
+.tab-icon-stack image:not([class*="close"]),
+#unified-extensions-area,
+#unified-extensions-area *,
+.urlbarView,
+.urlbarView *,
+.urlbarView-row,
+.urlbarView-row *,
+.urlbarView-favicon {
     filter: none !important;
     fill: unset !important;
+    stroke: unset !important;
 }
 
-/* 4. PINPOINT ADJUSTMENT: Handle internal system pages like Settings */
+/* 5. OVERRIDE REINFORCEMENT: Absolute lock to force close crosses white across ALL tabs */
+.tab-close-button,
+.zen-tab-close-button,
+[class*="close-button"],
+.tab-close-button *,
+.zen-tab-close-button * {
+    filter: invert(1) brightness(10) !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+/* 6. SPECIFIC FIX: Maintain visibility of internal native Settings pages */
 .tabbrowser-tab[label*="Settings"] .tab-icon-image,
 .tabbrowser-tab[title*="Settings"] .tab-icon-image,
 .tab-icon-image[src*="chrome://global/"] {
